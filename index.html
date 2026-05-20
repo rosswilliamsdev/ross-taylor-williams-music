@@ -1,1085 +1,1199 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ross Taylor Williams — Earth Music</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-  <style>
-    /* ============================================
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ross Taylor Williams — Earth Music</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ============================================
        DESIGN SYSTEM TOKENS
        ============================================ */
-    :root {
-      /* Brand */
-      --color-brand-primary:       hsl(100, 18%, 52%);
-      --color-brand-secondary:     hsl(25, 28%, 32%);
-      --color-brand-primary-light: hsl(100, 22%, 88%);
-      --color-brand-primary-dark:  hsl(100, 18%, 36%);
+      :root {
+        /* Brand */
+        --color-brand-primary: hsl(100, 18%, 52%);
+        --color-brand-secondary: hsl(25, 28%, 32%);
+        --color-brand-primary-light: hsl(100, 22%, 88%);
+        --color-brand-primary-dark: hsl(100, 18%, 36%);
 
-      /* Neutral */
-      --color-neutral-50:  hsl(45, 20%, 97%);
-      --color-neutral-100: hsl(45, 15%, 92%);
-      --color-neutral-200: hsl(40, 12%, 84%);
-      --color-neutral-400: hsl(35, 8%, 58%);
-      --color-neutral-600: hsl(30, 6%, 38%);
-      --color-neutral-900: hsl(25, 8%, 14%);
+        /* Neutral */
+        --color-neutral-50: hsl(45, 20%, 97%);
+        --color-neutral-100: hsl(45, 15%, 92%);
+        --color-neutral-200: hsl(40, 12%, 84%);
+        --color-neutral-400: hsl(35, 8%, 58%);
+        --color-neutral-600: hsl(30, 6%, 38%);
+        --color-neutral-900: hsl(25, 8%, 14%);
 
-      /* Semantic */
-      --color-error:   hsl(4, 60%, 52%);
-      --color-success: hsl(145, 40%, 42%);
+        /* Semantic */
+        --color-error: hsl(4, 60%, 52%);
+        --color-success: hsl(145, 40%, 42%);
 
-      /* Surface */
-      --color-surface-base:    hsl(45, 20%, 97%);
-      --color-surface-raised:  hsl(45, 15%, 92%);
-      --color-surface-overlay: hsl(45, 15%, 88%);
+        /* Surface */
+        --color-surface-base: hsl(45, 20%, 97%);
+        --color-surface-raised: hsl(45, 15%, 92%);
+        --color-surface-overlay: hsl(45, 15%, 88%);
 
-      /* Text */
-      --color-text-primary:   hsl(25, 8%, 14%);
-      --color-text-secondary: hsl(30, 6%, 38%);
-      --color-text-muted:     hsl(35, 8%, 58%);
-      --color-text-inverse:   hsl(45, 20%, 97%);
+        /* Text */
+        --color-text-primary: hsl(25, 8%, 14%);
+        --color-text-secondary: hsl(30, 6%, 38%);
+        --color-text-muted: hsl(35, 8%, 58%);
+        --color-text-inverse: hsl(45, 20%, 97%);
 
-      /* Typography */
-      --font-display: 'Glassure', Georgia, serif;
-      --font-body:    'Poppins', system-ui, sans-serif;
+        /* Typography */
+        --font-display: 'Glassure', Georgia, serif;
+        --font-body: 'Poppins', system-ui, sans-serif;
 
-      /* Spacing */
-      --spacing-1:  0.25rem;
-      --spacing-2:  0.5rem;
-      --spacing-3:  0.75rem;
-      --spacing-4:  1rem;
-      --spacing-5:  1.25rem;
-      --spacing-6:  1.5rem;
-      --spacing-8:  2rem;
-      --spacing-10: 2.5rem;
-      --spacing-12: 3rem;
-      --spacing-16: 4rem;
-      --spacing-20: 5rem;
-      --spacing-24: 6rem;
-      --spacing-32: 8rem;
+        /* Spacing */
+        --spacing-1: 0.25rem;
+        --spacing-2: 0.5rem;
+        --spacing-3: 0.75rem;
+        --spacing-4: 1rem;
+        --spacing-5: 1.25rem;
+        --spacing-6: 1.5rem;
+        --spacing-8: 2rem;
+        --spacing-10: 2.5rem;
+        --spacing-12: 3rem;
+        --spacing-16: 4rem;
+        --spacing-20: 5rem;
+        --spacing-24: 6rem;
+        --spacing-32: 8rem;
 
-      /* Radius */
-      --radius-none: 0;
-      --radius-sm:   4px;
-      --radius-md:   8px;
-      --radius-lg:   16px;
-      --radius-pill: 9999px;
+        /* Radius */
+        --radius-none: 0;
+        --radius-sm: 4px;
+        --radius-md: 8px;
+        --radius-lg: 16px;
+        --radius-pill: 9999px;
 
-      /* Shadows */
-      --shadow-sm: 0 1px 3px hsl(25 8% 14% / 0.08);
-      --shadow-md: 0 4px 12px hsl(25 8% 14% / 0.10);
-      --shadow-lg: 0 8px 24px hsl(25 8% 14% / 0.12);
+        /* Shadows */
+        --shadow-sm: 0 1px 3px hsl(25 8% 14% / 0.08);
+        --shadow-md: 0 4px 12px hsl(25 8% 14% / 0.1);
+        --shadow-lg: 0 8px 24px hsl(25 8% 14% / 0.12);
 
-      /* Motion */
-      --duration-fast:  120ms;
-      --duration-base:  200ms;
-      --duration-slow:  350ms;
-      --duration-enter: 400ms;
-      --easing-default: ease;
-      --easing-out:     cubic-bezier(0.0, 0.0, 0.2, 1);
-      --easing-in-out:  cubic-bezier(0.4, 0.0, 0.2, 1);
-    }
+        /* Motion */
+        --duration-fast: 120ms;
+        --duration-base: 200ms;
+        --duration-slow: 350ms;
+        --duration-enter: 400ms;
+        --easing-default: ease;
+        --easing-out: cubic-bezier(0, 0, 0.2, 1);
+        --easing-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+      }
 
-    /* ============================================
+      /* ============================================
        GLASSURE FONT FACE (placeholder — replace with real file)
        Using a serif fallback for now
        ============================================ */
-    @font-face {
-      font-family: 'Glassure';
-      src: url('fonts/Glassure.woff2') format('woff2'),
-           url('fonts/Glassure.woff') format('woff');
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    /* ============================================
-       RESET & BASE
-       ============================================ */
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 80px;
-    }
-
-    body {
-      font-family: var(--font-body);
-      font-weight: 400;
-      font-size: 1rem;
-      line-height: 1.6;
-      color: var(--color-text-primary);
-      background-color: var(--color-surface-base);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-      height: auto;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* Glassure utility class */
-    .glassure {
-      font-family: var(--font-display);
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-    }
-
-    /* ============================================
-       NAV
-       ============================================ */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background: hsla(45, 20%, 97%, 0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      transition: box-shadow var(--duration-base) var(--easing-default);
-      border-bottom: 1px solid transparent;
-    }
-
-    .nav.scrolled {
-      box-shadow: var(--shadow-sm);
-      border-bottom-color: var(--color-neutral-200);
-    }
-
-    .nav-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: var(--spacing-4) var(--spacing-6);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-logo {
-      font-family: var(--font-display);
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      font-size: 1.1rem;
-      color: var(--color-text-primary);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: var(--spacing-8);
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-family: var(--font-body);
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--color-text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      transition: color var(--duration-base) var(--easing-default);
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: var(--color-brand-primary);
-      transition: width var(--duration-base) var(--easing-out);
-    }
-
-    .nav-links a:hover {
-      color: var(--color-brand-primary);
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .nav-hamburger {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      width: 32px;
-      height: 24px;
-      position: relative;
-    }
-
-    .nav-hamburger span {
-      display: block;
-      width: 100%;
-      height: 2px;
-      background: var(--color-text-primary);
-      position: absolute;
-      left: 0;
-      transition: all var(--duration-base) var(--easing-in-out);
-    }
-
-    .nav-hamburger span:nth-child(1) { top: 0; }
-    .nav-hamburger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
-    .nav-hamburger span:nth-child(3) { bottom: 0; }
-
-    .nav-hamburger.open span:nth-child(1) {
-      top: 50%; transform: translateY(-50%) rotate(45deg);
-    }
-    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
-    .nav-hamburger.open span:nth-child(3) {
-      bottom: 50%; transform: translateY(50%) rotate(-45deg);
-    }
-
-    /* Mobile nav */
-    .nav-mobile {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: hsla(45, 20%, 97%, 0.98);
-      backdrop-filter: blur(20px);
-      z-index: 99;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: var(--spacing-8);
-    }
-
-    .nav-mobile.open {
-      display: flex;
-    }
-
-    .nav-mobile a {
-      font-family: var(--font-display);
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      font-size: 1.5rem;
-      color: var(--color-text-primary);
-      transition: color var(--duration-base);
-    }
-
-    .nav-mobile a:hover {
-      color: var(--color-brand-primary);
-    }
-
-    /* ============================================
-       HERO
-       ============================================ */
-    .hero {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      min-height: 600px;
-      overflow: hidden;
-    }
-
-    .hero-image {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 40%;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        hsla(25, 8%, 14%, 0.15) 0%,
-        hsla(25, 8%, 14%, 0.0) 30%,
-        hsla(25, 8%, 14%, 0.0) 50%,
-        hsla(25, 8%, 14%, 0.5) 85%,
-        hsla(25, 8%, 14%, 0.7) 100%
-      );
-    }
-
-    .hero-content {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      padding: var(--spacing-32) var(--spacing-6) var(--spacing-16);
-    }
-
-    .hero-artist-name {
-      font-family: var(--font-body);
-      font-size: 0.85rem;
-      font-weight: 400;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--color-text-inverse);
-      opacity: 0;
-      animation: fadeDown 0.8s var(--easing-out) 0.3s forwards;
-    }
-
-    .hero-bottom {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--spacing-8);
-    }
-
-    .hero-album-title {
-      font-family: var(--font-display);
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      font-size: clamp(3rem, 8vw, 5.5rem);
-      color: var(--color-text-inverse);
-      line-height: 1.05;
-      text-align: center;
-      opacity: 0;
-      animation: fadeUp 1s var(--easing-out) 0.6s forwards;
-    }
-
-    .hero-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--spacing-2);
-      font-family: var(--font-body);
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--color-text-inverse);
-      background: var(--color-brand-primary);
-      padding: var(--spacing-3) var(--spacing-8);
-      border-radius: var(--radius-pill);
-      border: none;
-      cursor: pointer;
-      transition: all var(--duration-base) var(--easing-default);
-      opacity: 0;
-      animation: fadeUp 0.8s var(--easing-out) 1s forwards;
-    }
-
-    .hero-cta:hover {
-      background: var(--color-brand-primary-dark);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-
-    /* ============================================
-       SECTION UTILITIES
-       ============================================ */
-    .section {
-      padding: var(--spacing-24) var(--spacing-6);
-    }
-
-    .section-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-heading {
-      font-family: var(--font-display);
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      font-size: 2.75rem;
-      line-height: 1.1;
-      color: var(--color-text-primary);
-      margin-bottom: var(--spacing-12);
-    }
-
-    .section-divider-img {
-      width: 100%;
-      height: 50vh;
-      min-height: 300px;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* ============================================
-       BIO
-       ============================================ */
-    .bio-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--spacing-16);
-      align-items: start;
-    }
-
-    .bio-photo {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 3 / 4;
-      object-fit: cover;
-      object-position: center 20%;
-    }
-
-    .bio-content {
-      padding-top: var(--spacing-4);
-    }
-
-    .bio-content p {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: var(--color-text-secondary);
-      margin-bottom: var(--spacing-6);
-    }
-
-    .bio-content p:first-of-type {
-      font-size: 1.125rem;
-      line-height: 1.6;
-      font-weight: 400;
-      color: var(--color-text-primary);
-    }
-
-    /* ============================================
-       MUSIC
-       ============================================ */
-    .music-card {
-      background: var(--color-surface-raised);
-      border: 1px solid var(--color-neutral-200);
-      border-radius: var(--radius-md);
-      padding: var(--spacing-10);
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .music-embed-placeholder {
-      width: 100%;
-      height: 320px;
-      background: var(--color-surface-overlay);
-      border-radius: var(--radius-sm);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: var(--spacing-4);
-      color: var(--color-text-muted);
-      font-size: 0.875rem;
-    }
-
-    .music-embed-placeholder svg {
-      width: 48px;
-      height: 48px;
-      opacity: 0.4;
-    }
-
-    /* ============================================
-       SHOWS
-       ============================================ */
-    .shows-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--spacing-4);
-    }
-
-    .show-card {
-      display: grid;
-      grid-template-columns: 100px 1fr auto;
-      align-items: center;
-      gap: var(--spacing-6);
-      padding: var(--spacing-5) var(--spacing-6);
-      background: var(--color-surface-raised);
-      border: 1px solid var(--color-neutral-200);
-      border-radius: var(--radius-md);
-      transition: box-shadow var(--duration-base) var(--easing-default);
-    }
-
-    .show-card:hover {
-      box-shadow: var(--shadow-md);
-    }
-
-    .show-date {
-      text-align: center;
-    }
-
-    .show-date-month {
-      font-size: 0.75rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--color-brand-primary);
-    }
-
-    .show-date-day {
-      font-family: var(--font-display);
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      font-size: 1.75rem;
-      line-height: 1;
-      color: var(--color-text-primary);
-    }
-
-    .show-info-venue {
-      font-weight: 500;
-      font-size: 1rem;
-      color: var(--color-text-primary);
-    }
-
-    .show-info-city {
-      font-size: 0.875rem;
-      color: var(--color-text-secondary);
-    }
-
-    .btn-ghost {
-      font-family: var(--font-body);
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--color-text-secondary);
-      background: none;
-      border: 1px solid var(--color-neutral-200);
-      padding: var(--spacing-2) var(--spacing-5);
-      border-radius: var(--radius-sm);
-      cursor: pointer;
-      transition: all var(--duration-base) var(--easing-default);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .btn-ghost:hover {
-      border-color: var(--color-brand-primary);
-      color: var(--color-brand-primary);
-    }
-
-    /* ============================================
-       PRESS
-       ============================================ */
-    .press-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--spacing-6);
-      margin-bottom: var(--spacing-12);
-    }
-
-    .press-card {
-      background: var(--color-surface-raised);
-      border: 1px solid var(--color-neutral-200);
-      border-radius: var(--radius-md);
-      padding: var(--spacing-8);
-      transition: box-shadow var(--duration-base) var(--easing-default);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: var(--spacing-6);
-    }
-
-    .press-card:hover {
-      box-shadow: var(--shadow-md);
-    }
-
-    .press-quote {
-      font-style: italic;
-      font-size: 1.05rem;
-      line-height: 1.7;
-      color: var(--color-text-primary);
-    }
-
-    .press-quote::before {
-      content: '"';
-      font-family: var(--font-display);
-      font-size: 2rem;
-      line-height: 0;
-      vertical-align: -0.3em;
-      color: var(--color-brand-primary);
-      margin-right: 2px;
-    }
-
-    .press-source {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--color-brand-primary-dark);
-      background: var(--color-brand-primary-light);
-      padding: var(--spacing-1) var(--spacing-3);
-      border-radius: var(--radius-sm);
-      align-self: flex-start;
-    }
-
-    .press-cta-wrap {
-      text-align: center;
-    }
-
-    .btn-bark {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--spacing-2);
-      font-family: var(--font-body);
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--color-text-inverse);
-      background: var(--color-brand-secondary);
-      padding: var(--spacing-3) var(--spacing-8);
-      border-radius: var(--radius-sm);
-      border: none;
-      cursor: pointer;
-      transition: all var(--duration-base) var(--easing-default);
-    }
-
-    .btn-bark:hover {
-      opacity: 0.9;
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-md);
-    }
-
-    /* ============================================
-       CONTACT
-       ============================================ */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--spacing-16);
-      align-items: start;
-    }
-
-    .contact-text p {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: var(--color-text-secondary);
-      margin-bottom: var(--spacing-6);
-    }
-
-    .contact-links {
-      display: flex;
-      gap: var(--spacing-6);
-      margin-top: var(--spacing-4);
-    }
-
-    .contact-links a {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--color-text-secondary);
-      transition: color var(--duration-base);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .contact-links a:hover {
-      color: var(--color-brand-primary);
-    }
-
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-4);
-    }
-
-    .form-field {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-1);
-    }
-
-    .form-field label {
-      font-size: 0.8rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--color-text-secondary);
-    }
-
-    .form-field input,
-    .form-field textarea {
-      font-family: var(--font-body);
-      font-size: 1rem;
-      padding: var(--spacing-3) var(--spacing-4);
-      border: 1px solid var(--color-neutral-200);
-      border-radius: var(--radius-md);
-      background: var(--color-surface-base);
-      color: var(--color-text-primary);
-      transition: border-color var(--duration-base), box-shadow var(--duration-base);
-      outline: none;
-    }
-
-    .form-field input:focus,
-    .form-field textarea:focus {
-      border-color: var(--color-brand-primary);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .form-field textarea {
-      min-height: 140px;
-      resize: vertical;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-body);
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--color-text-inverse);
-      background: var(--color-brand-primary);
-      padding: var(--spacing-3) var(--spacing-8);
-      border-radius: var(--radius-sm);
-      border: none;
-      cursor: pointer;
-      transition: all var(--duration-base) var(--easing-default);
-      align-self: flex-start;
-    }
-
-    .btn-primary:hover {
-      background: var(--color-brand-primary-dark);
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-md);
-    }
-
-    /* ============================================
-       FOOTER
-       ============================================ */
-    .footer {
-      padding: var(--spacing-12) var(--spacing-6);
-      text-align: center;
-      border-top: 1px solid var(--color-neutral-200);
-    }
-
-    .footer p {
-      font-size: 0.8rem;
-      color: var(--color-text-muted);
-    }
-
-    /* ============================================
-       ANIMATIONS
-       ============================================ */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity var(--duration-enter) var(--easing-out),
-                  transform var(--duration-enter) var(--easing-out);
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ============================================
-       RESPONSIVE
-       ============================================ */
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .nav-hamburger { display: block; }
-
-      .section { padding: var(--spacing-16) var(--spacing-4); }
-      .section-heading { font-size: 2rem; }
-
-      .hero-content {
-        padding: var(--spacing-24) var(--spacing-4) var(--spacing-12);
+      @font-face {
+        font-family: 'Glassure';
+        src:
+          url('fonts/Glassure.woff2') format('woff2'),
+          url('fonts/Glassure.woff') format('woff');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
       }
 
-      .bio-grid {
-        grid-template-columns: 1fr;
+      /* ============================================
+       RESET & BASE
+       ============================================ */
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px;
+      }
+
+      body {
+        font-family: var(--font-body);
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 1.6;
+        color: var(--color-text-primary);
+        background-color: var(--color-surface-base);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* Glassure utility class */
+      .glassure {
+        font-family: var(--font-display);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+      }
+
+      /* ============================================
+       NAV
+       ============================================ */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: hsla(45, 20%, 97%, 0.92);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        transition: box-shadow var(--duration-base) var(--easing-default);
+        border-bottom: 1px solid transparent;
+      }
+
+      .nav.scrolled {
+        box-shadow: var(--shadow-sm);
+        border-bottom-color: var(--color-neutral-200);
+      }
+
+      .nav-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: var(--spacing-4) var(--spacing-6);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .nav-logo {
+        font-family: var(--font-display);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        font-size: 1.1rem;
+        color: var(--color-text-primary);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: var(--spacing-8);
+        list-style: none;
+      }
+
+      .nav-links a {
+        font-family: var(--font-body);
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: var(--color-text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        transition: color var(--duration-base) var(--easing-default);
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: var(--color-brand-primary);
+        transition: width var(--duration-base) var(--easing-out);
+      }
+
+      .nav-links a:hover {
+        color: var(--color-brand-primary);
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .nav-hamburger {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        width: 32px;
+        height: 24px;
+        position: relative;
+      }
+
+      .nav-hamburger span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: var(--color-text-primary);
+        position: absolute;
+        left: 0;
+        transition: all var(--duration-base) var(--easing-in-out);
+      }
+
+      .nav-hamburger span:nth-child(1) {
+        top: 0;
+      }
+      .nav-hamburger span:nth-child(2) {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .nav-hamburger span:nth-child(3) {
+        bottom: 0;
+      }
+
+      .nav-hamburger.open span:nth-child(1) {
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+      }
+      .nav-hamburger.open span:nth-child(2) {
+        opacity: 0;
+      }
+      .nav-hamburger.open span:nth-child(3) {
+        bottom: 50%;
+        transform: translateY(50%) rotate(-45deg);
+      }
+
+      /* Mobile nav */
+      .nav-mobile {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: hsla(45, 20%, 97%, 0.98);
+        backdrop-filter: blur(20px);
+        z-index: 99;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         gap: var(--spacing-8);
       }
 
-      .bio-photo {
-        aspect-ratio: 4 / 3;
-        object-position: center 20%;
+      .nav-mobile.open {
+        display: flex;
       }
 
-      .show-card {
-        grid-template-columns: 80px 1fr;
-        gap: var(--spacing-4);
+      .nav-mobile a {
+        font-family: var(--font-display);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        font-size: 1.5rem;
+        color: var(--color-text-primary);
+        transition: color var(--duration-base);
       }
 
-      .show-card .btn-ghost {
-        grid-column: 1 / -1;
-        justify-self: start;
+      .nav-mobile a:hover {
+        color: var(--color-brand-primary);
       }
 
-      .press-grid {
-        grid-template-columns: 1fr;
+      /* ============================================
+       HERO
+       ============================================ */
+      .hero {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        min-height: 600px;
+        overflow: hidden;
       }
 
-      .contact-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-10);
+      .hero-image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 40%;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          hsla(25, 8%, 14%, 0.15) 0%,
+          hsla(25, 8%, 14%, 0) 30%,
+          hsla(25, 8%, 14%, 0) 50%,
+          hsla(25, 8%, 14%, 0.5) 85%,
+          hsla(25, 8%, 14%, 0.7) 100%
+        );
+      }
+
+      .hero-content {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: var(--spacing-32) var(--spacing-6) var(--spacing-16);
+      }
+
+      .hero-artist-name {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        font-weight: 400;
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+        color: var(--color-text-inverse);
+        opacity: 0;
+        animation: fadeDown 0.8s var(--easing-out) 0.3s forwards;
+      }
+
+      .hero-bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-8);
+      }
+
+      .hero-album-title {
+        font-family: var(--font-display);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        font-size: clamp(3rem, 8vw, 5.5rem);
+        color: var(--color-text-inverse);
+        line-height: 1.05;
+        text-align: center;
+        opacity: 0;
+        animation: fadeUp 1s var(--easing-out) 0.6s forwards;
+      }
+
+      .hero-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-2);
+        font-family: var(--font-body);
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--color-text-inverse);
+        background: var(--color-brand-primary);
+        padding: var(--spacing-3) var(--spacing-8);
+        border-radius: var(--radius-pill);
+        border: none;
+        cursor: pointer;
+        transition: all var(--duration-base) var(--easing-default);
+        opacity: 0;
+        animation: fadeUp 0.8s var(--easing-out) 1s forwards;
+      }
+
+      .hero-cta:hover {
+        background: var(--color-brand-primary-dark);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+
+      /* ============================================
+       SECTION UTILITIES
+       ============================================ */
+      .section {
+        padding: var(--spacing-24) var(--spacing-6);
+      }
+
+      .section-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-heading {
+        font-family: var(--font-display);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        font-size: 2.75rem;
+        line-height: 1.1;
+        color: var(--color-text-primary);
+        margin-bottom: var(--spacing-12);
       }
 
       .section-divider-img {
-        height: 35vh;
-        min-height: 220px;
+        width: 100%;
+        height: 50vh;
+        min-height: 300px;
+        object-fit: cover;
+        display: block;
       }
-    }
 
-    @media (max-width: 480px) {
-      .hero-album-title {
-        font-size: 2.5rem;
+      /* ============================================
+       BIO
+       ============================================ */
+      .bio-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-16);
+        align-items: start;
       }
-    }
-  </style>
-</head>
-<body>
 
-  <!-- NAV -->
-  <nav class="nav" id="nav">
-    <div class="nav-inner">
-      <a href="#hero" class="nav-logo glassure">Ross Taylor Williams</a>
-      <ul class="nav-links">
-        <li><a href="#bio">Bio</a></li>
-        <li><a href="#music">Music</a></li>
-        <li><a href="#shows">Shows</a></li>
-        <li><a href="#press">Press</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button class="nav-hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
+      .bio-photo {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+        object-position: center 20%;
+      }
 
-  <!-- Mobile nav overlay -->
-  <div class="nav-mobile" id="mobileNav">
-    <a href="#bio" class="mobile-link">Bio</a>
-    <a href="#music" class="mobile-link">Music</a>
-    <a href="#shows" class="mobile-link">Shows</a>
-    <a href="#press" class="mobile-link">Press</a>
-    <a href="#contact" class="mobile-link">Contact</a>
-  </div>
+      .bio-content {
+        padding-top: var(--spacing-4);
+      }
 
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <img src="images/Cover.png" alt="Earth Music album cover — Ross Taylor Williams seated beneath a sprawling tree" class="hero-image" loading="eager">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <p class="hero-artist-name">Ross Taylor Williams</p>
-      <div class="hero-bottom">
-        <h1 class="hero-album-title glassure">Earth Music</h1>
-        <a href="#music" class="hero-cta">Listen Now</a>
-      </div>
-    </div>
-  </section>
+      .bio-content p {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: var(--color-text-secondary);
+        margin-bottom: var(--spacing-6);
+      }
 
-  <!-- BIO -->
-  <section class="section" id="bio">
-    <div class="section-inner">
-      <h2 class="section-heading reveal">About</h2>
-      <div class="bio-grid">
-        <img src="images/Alea_Lovely-67.jpg" alt="Ross Taylor Williams portrait" class="bio-photo reveal" loading="lazy">
-        <div class="bio-content reveal">
-          <p>Ross Taylor Williams is a singer-songwriter, multi-instrumentalist, and music educator rooted in the heartland — weaving folk, indie, and soul into songs that feel like standing barefoot in wet grass.</p>
-          <p>His debut album <em>Earth Music</em> was born from two years of writing, wandering, and sitting with the quiet. Recorded with close collaborators in living rooms and home studios, the album channels the intimacy of the spaces where the songs first took shape.</p>
-          <p>When he's not writing or performing, Ross teaches music to the next generation of players — carrying the same patience, curiosity, and warmth into the classroom that he brings to the stage.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+      .bio-content p:first-of-type {
+        font-size: 1.125rem;
+        line-height: 1.6;
+        font-weight: 400;
+        color: var(--color-text-primary);
+      }
 
-  <!-- PHOTO DIVIDER -->
-  <img src="images/Alea_Lovely-87.jpg" alt="Ross through the leaves" class="section-divider-img reveal" loading="lazy">
+      /* ============================================
+       MUSIC
+       ============================================ */
+      .music-card {
+        background: var(--color-surface-raised);
+        border: 1px solid var(--color-neutral-200);
+        border-radius: var(--radius-md);
+        padding: var(--spacing-10);
+        max-width: 700px;
+        margin: 0 auto;
+      }
 
-  <!-- MUSIC -->
-  <section class="section" id="music">
-    <div class="section-inner">
-      <h2 class="section-heading reveal" style="text-align: center;">Music</h2>
-      <div class="music-card reveal">
-        <div class="music-embed-placeholder">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m9 9 10.5-3m0 6.553v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 1 1-.99-3.467l2.31-.66a2.25 2.25 0 0 0 1.632-2.163Zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 0 1-.99-3.467l2.31-.66A2.25 2.25 0 0 0 9 15.553Z" />
-          </svg>
-          <span>Bandcamp player embed goes here</span>
-        </div>
-      </div>
-    </div>
-  </section>
+      .music-embed-placeholder {
+        width: 100%;
+        height: 320px;
+        background: var(--color-surface-overlay);
+        border-radius: var(--radius-sm);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-4);
+        color: var(--color-text-muted);
+        font-size: 0.875rem;
+      }
 
-  <!-- SHOWS -->
-  <section class="section" id="shows" style="background: var(--color-surface-raised);">
-    <div class="section-inner">
-      <h2 class="section-heading reveal">Shows</h2>
-      <div class="shows-grid">
+      .music-embed-placeholder svg {
+        width: 48px;
+        height: 48px;
+        opacity: 0.4;
+      }
 
-        <div class="show-card reveal">
-          <div class="show-date">
-            <div class="show-date-month">Jun</div>
-            <div class="show-date-day glassure">14</div>
-          </div>
-          <div class="show-info">
-            <div class="show-info-venue">The Bottleneck</div>
-            <div class="show-info-city">Lawrence, KS</div>
-          </div>
-          <button class="btn-ghost">Tickets</button>
-        </div>
+      /* ============================================
+       SHOWS
+       ============================================ */
+      .shows-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--spacing-4);
+      }
 
-        <div class="show-card reveal">
-          <div class="show-date">
-            <div class="show-date-month">Jun</div>
-            <div class="show-date-day glassure">28</div>
-          </div>
-          <div class="show-info">
-            <div class="show-info-venue">RecordBar</div>
-            <div class="show-info-city">Kansas City, MO</div>
-          </div>
-          <button class="btn-ghost">Tickets</button>
-        </div>
+      .show-card {
+        display: grid;
+        grid-template-columns: 100px 1fr auto;
+        align-items: center;
+        gap: var(--spacing-6);
+        padding: var(--spacing-5) var(--spacing-6);
+        background: var(--color-surface-raised);
+        border: 1px solid var(--color-neutral-200);
+        border-radius: var(--radius-md);
+        transition: box-shadow var(--duration-base) var(--easing-default);
+      }
 
-        <div class="show-card reveal">
-          <div class="show-date">
-            <div class="show-date-month">Jul</div>
-            <div class="show-date-day glassure">12</div>
-          </div>
-          <div class="show-info">
-            <div class="show-info-venue">Vaudeville Mews</div>
-            <div class="show-info-city">Des Moines, IA</div>
-          </div>
-          <button class="btn-ghost">Tickets</button>
-        </div>
+      .show-card:hover {
+        box-shadow: var(--shadow-md);
+      }
 
-        <div class="show-card reveal">
-          <div class="show-date">
-            <div class="show-date-month">Aug</div>
-            <div class="show-date-day glassure">03</div>
-          </div>
-          <div class="show-info">
-            <div class="show-info-venue">The Blue Note</div>
-            <div class="show-info-city">Columbia, MO</div>
-          </div>
-          <button class="btn-ghost">Tickets</button>
-        </div>
+      .show-date {
+        text-align: center;
+      }
 
-      </div>
-    </div>
-  </section>
+      .show-date-month {
+        font-size: 0.75rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--color-brand-primary);
+      }
 
-  <!-- PHOTO DIVIDER -->
-  <img src="images/Alea_Lovely-103.jpg" alt="Ross holding a flower" class="section-divider-img reveal" loading="lazy">
+      .show-date-day {
+        font-family: var(--font-display);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        font-size: 1.75rem;
+        line-height: 1;
+        color: var(--color-text-primary);
+      }
 
-  <!-- PRESS -->
-  <section class="section" id="press">
-    <div class="section-inner">
-      <h2 class="section-heading reveal">Press</h2>
-      <div class="press-grid">
+      .show-info-venue {
+        font-weight: 500;
+        font-size: 1rem;
+        color: var(--color-text-primary);
+      }
 
-        <div class="press-card reveal">
-          <p class="press-quote">Earth Music feels like a long exhale — the kind of album you didn't know you needed until it finds you on a quiet evening.</p>
-          <span class="press-source">The Pitch KC</span>
-        </div>
+      .show-info-city {
+        font-size: 0.875rem;
+        color: var(--color-text-secondary);
+      }
 
-        <div class="press-card reveal">
-          <p class="press-quote">Williams writes with the patience of a folk singer and the soul of someone who's been paying very close attention to the world around him.</p>
-          <span class="press-source">No Depression</span>
-        </div>
+      .btn-ghost {
+        font-family: var(--font-body);
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: var(--color-text-secondary);
+        background: none;
+        border: 1px solid var(--color-neutral-200);
+        padding: var(--spacing-2) var(--spacing-5);
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        transition: all var(--duration-base) var(--easing-default);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
 
-        <div class="press-card reveal">
-          <p class="press-quote">There's a warmth here that can't be manufactured — these songs were clearly lived before they were written.</p>
-          <span class="press-source">Lawrence Times</span>
-        </div>
+      .btn-ghost:hover {
+        border-color: var(--color-brand-primary);
+        color: var(--color-brand-primary);
+      }
 
-        <div class="press-card reveal">
-          <p class="press-quote">A debut that sounds like it's been waiting to arrive for years. Unhurried, grounded, and deeply felt.</p>
-          <span class="press-source">Paste Magazine</span>
-        </div>
+      /* ============================================
+       PRESS
+       ============================================ */
+      .press-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-6);
+        margin-bottom: var(--spacing-12);
+      }
 
-      </div>
-      <div class="press-cta-wrap reveal">
-        <button class="btn-bark">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
-          Download EPK
+      .press-card {
+        background: var(--color-surface-raised);
+        border: 1px solid var(--color-neutral-200);
+        border-radius: var(--radius-md);
+        padding: var(--spacing-8);
+        transition: box-shadow var(--duration-base) var(--easing-default);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: var(--spacing-6);
+      }
+
+      .press-card:hover {
+        box-shadow: var(--shadow-md);
+      }
+
+      .press-quote {
+        font-style: italic;
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: var(--color-text-primary);
+      }
+
+      .press-quote::before {
+        content: '"';
+        font-family: var(--font-display);
+        font-size: 2rem;
+        line-height: 0;
+        vertical-align: -0.3em;
+        color: var(--color-brand-primary);
+        margin-right: 2px;
+      }
+
+      .press-source {
+        display: inline-block;
+        font-size: 0.7rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--color-brand-primary-dark);
+        background: var(--color-brand-primary-light);
+        padding: var(--spacing-1) var(--spacing-3);
+        border-radius: var(--radius-sm);
+        align-self: flex-start;
+      }
+
+      .press-cta-wrap {
+        text-align: center;
+      }
+
+      .btn-bark {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-2);
+        font-family: var(--font-body);
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--color-text-inverse);
+        background: var(--color-brand-secondary);
+        padding: var(--spacing-3) var(--spacing-8);
+        border-radius: var(--radius-sm);
+        border: none;
+        cursor: pointer;
+        transition: all var(--duration-base) var(--easing-default);
+      }
+
+      .btn-bark:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-md);
+      }
+
+      /* ============================================
+       CONTACT
+       ============================================ */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-16);
+        align-items: start;
+      }
+
+      .contact-text p {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: var(--color-text-secondary);
+        margin-bottom: var(--spacing-6);
+      }
+
+      .contact-links {
+        display: flex;
+        gap: var(--spacing-6);
+        margin-top: var(--spacing-4);
+      }
+
+      .contact-links a {
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--color-text-secondary);
+        transition: color var(--duration-base);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .contact-links a:hover {
+        color: var(--color-brand-primary);
+      }
+
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-4);
+      }
+
+      .form-field {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-1);
+      }
+
+      .form-field label {
+        font-size: 0.8rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--color-text-secondary);
+      }
+
+      .form-field input,
+      .form-field textarea {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        padding: var(--spacing-3) var(--spacing-4);
+        border: 1px solid var(--color-neutral-200);
+        border-radius: var(--radius-md);
+        background: var(--color-surface-base);
+        color: var(--color-text-primary);
+        transition:
+          border-color var(--duration-base),
+          box-shadow var(--duration-base);
+        outline: none;
+      }
+
+      .form-field input:focus,
+      .form-field textarea:focus {
+        border-color: var(--color-brand-primary);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .form-field textarea {
+        min-height: 140px;
+        resize: vertical;
+      }
+
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-body);
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--color-text-inverse);
+        background: var(--color-brand-primary);
+        padding: var(--spacing-3) var(--spacing-8);
+        border-radius: var(--radius-sm);
+        border: none;
+        cursor: pointer;
+        transition: all var(--duration-base) var(--easing-default);
+        align-self: flex-start;
+      }
+
+      .btn-primary:hover {
+        background: var(--color-brand-primary-dark);
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-md);
+      }
+
+      /* ============================================
+       FOOTER
+       ============================================ */
+      .footer {
+        padding: var(--spacing-12) var(--spacing-6);
+        text-align: center;
+        border-top: 1px solid var(--color-neutral-200);
+      }
+
+      .footer p {
+        font-size: 0.8rem;
+        color: var(--color-text-muted);
+      }
+
+      /* ============================================
+       ANIMATIONS
+       ============================================ */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeDown {
+        from {
+          opacity: 0;
+          transform: translateY(-16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity var(--duration-enter) var(--easing-out),
+          transform var(--duration-enter) var(--easing-out);
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ============================================
+       RESPONSIVE
+       ============================================ */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+        .nav-hamburger {
+          display: block;
+        }
+
+        .section {
+          padding: var(--spacing-16) var(--spacing-4);
+        }
+        .section-heading {
+          font-size: 2rem;
+        }
+
+        .hero-content {
+          padding: var(--spacing-24) var(--spacing-4) var(--spacing-12);
+        }
+
+        .bio-grid {
+          grid-template-columns: 1fr;
+          gap: var(--spacing-8);
+        }
+
+        .bio-photo {
+          aspect-ratio: 4 / 3;
+          object-position: center 20%;
+        }
+
+        .show-card {
+          grid-template-columns: 80px 1fr;
+          gap: var(--spacing-4);
+        }
+
+        .show-card .btn-ghost {
+          grid-column: 1 / -1;
+          justify-self: start;
+        }
+
+        .press-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: var(--spacing-10);
+        }
+
+        .section-divider-img {
+          height: 35vh;
+          min-height: 220px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-album-title {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav class="nav" id="nav">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo glassure">Ross Taylor Williams</a>
+        <ul class="nav-links">
+          <li><a href="#bio">Bio</a></li>
+          <li><a href="#music">Music</a></li>
+          <li><a href="#shows">Shows</a></li>
+          <li><a href="#press">Press</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
         </button>
       </div>
+    </nav>
+
+    <!-- Mobile nav overlay -->
+    <div class="nav-mobile" id="mobileNav">
+      <a href="#bio" class="mobile-link">Bio</a>
+      <a href="#music" class="mobile-link">Music</a>
+      <a href="#shows" class="mobile-link">Shows</a>
+      <a href="#press" class="mobile-link">Press</a>
+      <a href="#contact" class="mobile-link">Contact</a>
     </div>
-  </section>
 
-  <!-- PHOTO DIVIDER -->
-  <img src="images/Alea_Lovely-57.jpg" alt="Ross among the foliage" class="section-divider-img reveal" loading="lazy">
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <img
+        src="images/Cover.png"
+        alt="Earth Music album cover — Ross Taylor Williams seated beneath a sprawling tree"
+        class="hero-image"
+        loading="eager"
+      />
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-artist-name">Ross Taylor Williams</p>
+        <div class="hero-bottom">
+          <h1 class="hero-album-title glassure">Earth Music</h1>
+          <a href="#music" class="hero-cta">Listen Now</a>
+        </div>
+      </div>
+    </section>
 
-  <!-- CONTACT -->
-  <section class="section" id="contact">
-    <div class="section-inner">
-      <h2 class="section-heading reveal">Contact</h2>
-      <div class="contact-grid">
-        <div class="contact-text reveal">
-          <p>For booking, press inquiries, collaboration, or just to say hello — reach out below or connect on socials.</p>
-          <div class="contact-links">
-            <a href="#">Instagram</a>
-            <a href="#">Bandcamp</a>
-            <a href="#">Spotify</a>
+    <!-- BIO -->
+    <section class="section" id="bio">
+      <div class="section-inner">
+        <h2 class="section-heading reveal">About</h2>
+        <div class="bio-grid">
+          <img
+            src="images/Alea_Lovely-67.jpg"
+            alt="Ross Taylor Williams portrait"
+            class="bio-photo reveal"
+            loading="lazy"
+          />
+          <div class="bio-content reveal">
+            <p>
+              Ross Taylor Williams is a singer-songwriter, multi-instrumentalist, and music educator
+              rooted in the heartland — weaving folk, indie, and soul into songs that feel like
+              standing barefoot in wet grass.
+            </p>
+            <p>
+              His debut album <em>Earth Music</em> was born from two years of writing, wandering,
+              and sitting with the quiet. Recorded with close collaborators in living rooms and home
+              studios, the album channels the intimacy of the spaces where the songs first took
+              shape.
+            </p>
+            <p>
+              When he's not writing or performing, Ross teaches music to the next generation of
+              players — carrying the same patience, curiosity, and warmth into the classroom that he
+              brings to the stage.
+            </p>
           </div>
         </div>
-        <form class="contact-form reveal" onsubmit="event.preventDefault();">
-          <div class="form-field">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name">
-          </div>
-          <div class="form-field">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="you@email.com">
-          </div>
-          <div class="form-field">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="What's on your mind?"></textarea>
-          </div>
-          <button type="submit" class="btn-primary">Send Message</button>
-        </form>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <p>&copy; 2026 Ross Taylor Williams. All rights reserved.</p>
-  </footer>
+    <!-- PHOTO DIVIDER -->
+    <img
+      src="images/Alea_Lovely-87.jpg"
+      alt="Ross through the leaves"
+      class="section-divider-img reveal"
+      loading="lazy"
+    />
 
-  <script>
-    // Nav scroll shadow
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 20);
-    });
+    <!-- MUSIC -->
+    <section class="section" id="music">
+      <div class="section-inner">
+        <h2 class="section-heading reveal" style="text-align: center">Music</h2>
+        <div class="music-card reveal">
+          <div class="music-embed-placeholder">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m9 9 10.5-3m0 6.553v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 1 1-.99-3.467l2.31-.66a2.25 2.25 0 0 0 1.632-2.163Zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 0 1-.99-3.467l2.31-.66A2.25 2.25 0 0 0 9 15.553Z"
+              />
+            </svg>
+            <span>Bandcamp player embed goes here</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    // Hamburger toggle
-    const hamburger = document.getElementById('hamburger');
-    const mobileNav = document.getElementById('mobileNav');
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      mobileNav.classList.toggle('open');
-      document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
-    });
+    <!-- SHOWS -->
+    <section class="section" id="shows" style="background: var(--color-surface-raised)">
+      <div class="section-inner">
+        <h2 class="section-heading reveal">Shows</h2>
+        <div class="shows-grid">
+          <div class="show-card reveal">
+            <div class="show-date">
+              <div class="show-date-month">Jun</div>
+              <div class="show-date-day glassure">14</div>
+            </div>
+            <div class="show-info">
+              <div class="show-info-venue">The Bottleneck</div>
+              <div class="show-info-city">Lawrence, KS</div>
+            </div>
+            <button class="btn-ghost">Tickets</button>
+          </div>
 
-    // Close mobile nav on link click
-    document.querySelectorAll('.mobile-link').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        mobileNav.classList.remove('open');
-        document.body.style.overflow = '';
-      });
-    });
+          <div class="show-card reveal">
+            <div class="show-date">
+              <div class="show-date-month">Jun</div>
+              <div class="show-date-day glassure">28</div>
+            </div>
+            <div class="show-info">
+              <div class="show-info-venue">RecordBar</div>
+              <div class="show-info-city">Kansas City, MO</div>
+            </div>
+            <button class="btn-ghost">Tickets</button>
+          </div>
 
-    // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add('visible');
-          }, i * 80);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+          <div class="show-card reveal">
+            <div class="show-date">
+              <div class="show-date-month">Jul</div>
+              <div class="show-date-day glassure">12</div>
+            </div>
+            <div class="show-info">
+              <div class="show-info-venue">Vaudeville Mews</div>
+              <div class="show-info-city">Des Moines, IA</div>
+            </div>
+            <button class="btn-ghost">Tickets</button>
+          </div>
 
-    reveals.forEach(el => observer.observe(el));
-  </script>
+          <div class="show-card reveal">
+            <div class="show-date">
+              <div class="show-date-month">Aug</div>
+              <div class="show-date-day glassure">03</div>
+            </div>
+            <div class="show-info">
+              <div class="show-info-venue">The Blue Note</div>
+              <div class="show-info-city">Columbia, MO</div>
+            </div>
+            <button class="btn-ghost">Tickets</button>
+          </div>
+        </div>
+      </div>
+    </section>
 
-</body>
+    <!-- PHOTO DIVIDER -->
+    <img
+      src="images/Alea_Lovely-103.jpg"
+      alt="Ross holding a flower"
+      class="section-divider-img reveal"
+      loading="lazy"
+    />
+
+    <!-- PRESS -->
+    <section class="section" id="press">
+      <div class="section-inner">
+        <h2 class="section-heading reveal">Press</h2>
+        <div class="press-grid">
+          <div class="press-card reveal">
+            <p class="press-quote">
+              Earth Music feels like a long exhale — the kind of album you didn't know you needed
+              until it finds you on a quiet evening.
+            </p>
+            <span class="press-source">The Pitch KC</span>
+          </div>
+
+          <div class="press-card reveal">
+            <p class="press-quote">
+              Williams writes with the patience of a folk singer and the soul of someone who's been
+              paying very close attention to the world around him.
+            </p>
+            <span class="press-source">No Depression</span>
+          </div>
+
+          <div class="press-card reveal">
+            <p class="press-quote">
+              There's a warmth here that can't be manufactured — these songs were clearly lived
+              before they were written.
+            </p>
+            <span class="press-source">Lawrence Times</span>
+          </div>
+
+          <div class="press-card reveal">
+            <p class="press-quote">
+              A debut that sounds like it's been waiting to arrive for years. Unhurried, grounded,
+              and deeply felt.
+            </p>
+            <span class="press-source">Paste Magazine</span>
+          </div>
+        </div>
+        <div class="press-cta-wrap reveal">
+          <button class="btn-bark">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+              />
+            </svg>
+            Download EPK
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHOTO DIVIDER -->
+    <img
+      src="images/Alea_Lovely-57.jpg"
+      alt="Ross among the foliage"
+      class="section-divider-img reveal"
+      loading="lazy"
+    />
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="section-inner">
+        <h2 class="section-heading reveal">Contact</h2>
+        <div class="contact-grid">
+          <div class="contact-text reveal">
+            <p>
+              For booking, press inquiries, collaboration, or just to say hello — reach out below or
+              connect on socials.
+            </p>
+            <div class="contact-links">
+              <a href="#">Instagram</a>
+              <a href="#">Bandcamp</a>
+              <a href="#">Spotify</a>
+            </div>
+          </div>
+          <form class="contact-form reveal" onsubmit="event.preventDefault()">
+            <div class="form-field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" />
+            </div>
+            <div class="form-field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@email.com" />
+            </div>
+            <div class="form-field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="What's on your mind?"></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>&copy; 2026 Ross Taylor Williams. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Nav scroll shadow
+      const nav = document.getElementById('nav')
+      window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 20)
+      })
+
+      // Hamburger toggle
+      const hamburger = document.getElementById('hamburger')
+      const mobileNav = document.getElementById('mobileNav')
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open')
+        mobileNav.classList.toggle('open')
+        document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : ''
+      })
+
+      // Close mobile nav on link click
+      document.querySelectorAll('.mobile-link').forEach((link) => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('open')
+          mobileNav.classList.remove('open')
+          document.body.style.overflow = ''
+        })
+      })
+
+      // Scroll reveal
+      const reveals = document.querySelectorAll('.reveal')
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => {
+                entry.target.classList.add('visible')
+              }, i * 80)
+              observer.unobserve(entry.target)
+            }
+          })
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' },
+      )
+
+      reveals.forEach((el) => observer.observe(el))
+    </script>
+  </body>
 </html>

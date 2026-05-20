@@ -120,6 +120,7 @@ If mid-build, after presenting the sequence ask:
 > you are."
 
 Then:
+
 - Confirm what they've completed
 - Surface the most common mistake or skipped step for their **current** stage
 - Name what comes next and flag any common pitfalls there

@@ -1,6 +1,7 @@
 # Design System — Ross Taylor Williams
 
 ## Table of Contents
+
 - [Overview](#overview)
 - [Color Tokens](#color-tokens)
 - [Typography](#typography)
@@ -16,7 +17,7 @@
 
 ## Overview
 
-Organic, editorial, and quietly personal — rooted in the palette of the *Earth Music* album cover: soft greens, warm bark browns, and airy creams. Type pairs the distinctive presence of Glassure for all display and heading moments with the clean legibility of Poppins for body and UI copy.
+Organic, editorial, and quietly personal — rooted in the palette of the _Earth Music_ album cover: soft greens, warm bark browns, and airy creams. Type pairs the distinctive presence of Glassure for all display and heading moments with the clean legibility of Poppins for body and UI copy.
 
 ---
 
@@ -25,35 +26,35 @@ Organic, editorial, and quietly personal — rooted in the palette of the *Earth
 ```css
 :root {
   /* Brand */
-  --color-brand-primary:       hsl(100, 18%, 52%);   /* muted sage green */
-  --color-brand-secondary:     hsl(25, 28%, 32%);    /* warm bark brown */
-  --color-brand-primary-light: hsl(100, 22%, 88%);   /* pale sage tint */
-  --color-brand-primary-dark:  hsl(100, 18%, 36%);   /* deep sage */
+  --color-brand-primary: hsl(100, 18%, 52%); /* muted sage green */
+  --color-brand-secondary: hsl(25, 28%, 32%); /* warm bark brown */
+  --color-brand-primary-light: hsl(100, 22%, 88%); /* pale sage tint */
+  --color-brand-primary-dark: hsl(100, 18%, 36%); /* deep sage */
 
   /* Neutral */
-  --color-neutral-50:          hsl(45, 20%, 97%);    /* near white / cream */
-  --color-neutral-100:         hsl(45, 15%, 92%);    /* warm off-white */
-  --color-neutral-200:         hsl(40, 12%, 84%);    /* light warm gray */
-  --color-neutral-400:         hsl(35, 8%, 58%);     /* mid gray */
-  --color-neutral-600:         hsl(30, 6%, 38%);     /* dark gray */
-  --color-neutral-900:         hsl(25, 8%, 14%);     /* near black / deep earth */
+  --color-neutral-50: hsl(45, 20%, 97%); /* near white / cream */
+  --color-neutral-100: hsl(45, 15%, 92%); /* warm off-white */
+  --color-neutral-200: hsl(40, 12%, 84%); /* light warm gray */
+  --color-neutral-400: hsl(35, 8%, 58%); /* mid gray */
+  --color-neutral-600: hsl(30, 6%, 38%); /* dark gray */
+  --color-neutral-900: hsl(25, 8%, 14%); /* near black / deep earth */
 
   /* Semantic */
-  --color-error:               hsl(4, 60%, 52%);
-  --color-success:             hsl(145, 40%, 42%);
-  --color-warning:             hsl(38, 80%, 52%);
-  --color-info:                hsl(210, 50%, 52%);
+  --color-error: hsl(4, 60%, 52%);
+  --color-success: hsl(145, 40%, 42%);
+  --color-warning: hsl(38, 80%, 52%);
+  --color-info: hsl(210, 50%, 52%);
 
   /* Surface */
-  --color-surface-base:        hsl(45, 20%, 97%);    /* page background */
-  --color-surface-raised:      hsl(45, 15%, 92%);    /* cards, panels */
-  --color-surface-overlay:     hsl(45, 15%, 88%);    /* hover states, subtle fills */
+  --color-surface-base: hsl(45, 20%, 97%); /* page background */
+  --color-surface-raised: hsl(45, 15%, 92%); /* cards, panels */
+  --color-surface-overlay: hsl(45, 15%, 88%); /* hover states, subtle fills */
 
   /* Text */
-  --color-text-primary:        hsl(25, 8%, 14%);
-  --color-text-secondary:      hsl(30, 6%, 38%);
-  --color-text-muted:          hsl(35, 8%, 58%);
-  --color-text-inverse:        hsl(45, 20%, 97%);
+  --color-text-primary: hsl(25, 8%, 14%);
+  --color-text-secondary: hsl(30, 6%, 38%);
+  --color-text-muted: hsl(35, 8%, 58%);
+  --color-text-inverse: hsl(45, 20%, 97%);
 }
 ```
 
@@ -62,29 +63,31 @@ Organic, editorial, and quietly personal — rooted in the palette of the *Earth
 ## Typography
 
 **Font Families**
+
 ```css
 :root {
-  --font-display:  'Glassure', serif;                      /* all headings, section titles, hero */
-  --font-body:     'Poppins', system-ui, sans-serif;        /* body copy, UI labels, nav */
-  --font-mono:     'JetBrains Mono', monospace;            /* not primary use case */
+  --font-display: 'Glassure', serif; /* all headings, section titles, hero */
+  --font-body: 'Poppins', system-ui, sans-serif; /* body copy, UI labels, nav */
+  --font-mono: 'JetBrains Mono', monospace; /* not primary use case */
 }
 ```
 
 **Scale**
 
-| Token              | Size     | Line Height | Weight        | Usage                        |
-|--------------------|----------|-------------|---------------|------------------------------|
-| `--font-size-xs`   | 0.75rem  | 1.4         | 400           | captions, fine print         |
-| `--font-size-sm`   | 0.875rem | 1.5         | 400           | secondary labels, meta       |
-| `--font-size-base` | 1rem     | 1.6         | 400           | body copy                    |
-| `--font-size-lg`   | 1.125rem | 1.5         | 500           | lead paragraphs              |
-| `--font-size-xl`   | 1.25rem  | 1.4         | 500           | card titles, subheadings     |
-| `--font-size-2xl`  | 1.5rem   | 1.3         | 600           | section headings (Glassure)  |
-| `--font-size-3xl`  | 2rem     | 1.2         | 600           | page headings (Glassure)     |
-| `--font-size-4xl`  | 2.75rem  | 1.1         | 700           | display (Glassure)           |
-| `--font-size-5xl`  | 4rem     | 1.05        | 400           | hero title (Glassure)        |
+| Token              | Size     | Line Height | Weight | Usage                       |
+| ------------------ | -------- | ----------- | ------ | --------------------------- |
+| `--font-size-xs`   | 0.75rem  | 1.4         | 400    | captions, fine print        |
+| `--font-size-sm`   | 0.875rem | 1.5         | 400    | secondary labels, meta      |
+| `--font-size-base` | 1rem     | 1.6         | 400    | body copy                   |
+| `--font-size-lg`   | 1.125rem | 1.5         | 500    | lead paragraphs             |
+| `--font-size-xl`   | 1.25rem  | 1.4         | 500    | card titles, subheadings    |
+| `--font-size-2xl`  | 1.5rem   | 1.3         | 600    | section headings (Glassure) |
+| `--font-size-3xl`  | 2rem     | 1.2         | 600    | page headings (Glassure)    |
+| `--font-size-4xl`  | 2.75rem  | 1.1         | 700    | display (Glassure)          |
+| `--font-size-5xl`  | 4rem     | 1.05        | 400    | hero title (Glassure)       |
 
 **Rules:**
+
 - Use `--font-display` (Glassure) for all `2xl` and above headings, including the hero.
 - Use `--font-body` (Poppins) for all body text, nav, buttons, labels, and UI copy.
 - Glassure renders best at larger sizes — don't use below `xl`.
@@ -97,33 +100,33 @@ Organic, editorial, and quietly personal — rooted in the palette of the *Earth
 
 Base unit: 4px
 
-| Token          | Value  |
-|----------------|--------|
+| Token          | Value          |
+| -------------- | -------------- |
 | `--spacing-1`  | 0.25rem (4px)  |
-| `--spacing-2`  | 0.5rem  (8px)  |
+| `--spacing-2`  | 0.5rem (8px)   |
 | `--spacing-3`  | 0.75rem (12px) |
-| `--spacing-4`  | 1rem    (16px) |
+| `--spacing-4`  | 1rem (16px)    |
 | `--spacing-5`  | 1.25rem (20px) |
-| `--spacing-6`  | 1.5rem  (24px) |
-| `--spacing-8`  | 2rem    (32px) |
-| `--spacing-10` | 2.5rem  (40px) |
-| `--spacing-12` | 3rem    (48px) |
-| `--spacing-16` | 4rem    (64px) |
-| `--spacing-20` | 5rem    (80px) |
-| `--spacing-24` | 6rem    (96px) |
-| `--spacing-32` | 8rem    (128px)|
+| `--spacing-6`  | 1.5rem (24px)  |
+| `--spacing-8`  | 2rem (32px)    |
+| `--spacing-10` | 2.5rem (40px)  |
+| `--spacing-12` | 3rem (48px)    |
+| `--spacing-16` | 4rem (64px)    |
+| `--spacing-20` | 5rem (80px)    |
+| `--spacing-24` | 6rem (96px)    |
+| `--spacing-32` | 8rem (128px)   |
 
 ---
 
 ## Border Radius
 
-| Token            | Value     | Usage                        |
-|------------------|-----------|------------------------------|
-| `--radius-none`  | 0         | sharp image crops            |
-| `--radius-sm`    | 4px       | tags, badges                 |
-| `--radius-md`    | 8px       | cards, inputs                |
-| `--radius-lg`    | 16px      | modals, panels               |
-| `--radius-pill`  | 9999px    | pill buttons                 |
+| Token           | Value  | Usage             |
+| --------------- | ------ | ----------------- |
+| `--radius-none` | 0      | sharp image crops |
+| `--radius-sm`   | 4px    | tags, badges      |
+| `--radius-md`   | 8px    | cards, inputs     |
+| `--radius-lg`   | 16px   | modals, panels    |
+| `--radius-pill` | 9999px | pill buttons      |
 
 Prefer `--radius-none` and `--radius-sm` to maintain the organic/editorial tone — avoid heavy rounding.
 
@@ -131,13 +134,13 @@ Prefer `--radius-none` and `--radius-sm` to maintain the organic/editorial tone 
 
 ## Shadows
 
-| Token           | Value                                           |
-|-----------------|-------------------------------------------------|
-| `--shadow-none` | none                                            |
-| `--shadow-sm`   | 0 1px 3px hsl(25 8% 14% / 0.08)                |
-| `--shadow-md`   | 0 4px 12px hsl(25 8% 14% / 0.10)               |
-| `--shadow-lg`   | 0 8px 24px hsl(25 8% 14% / 0.12)               |
-| `--shadow-xl`   | 0 16px 48px hsl(25 8% 14% / 0.14)              |
+| Token           | Value                             |
+| --------------- | --------------------------------- |
+| `--shadow-none` | none                              |
+| `--shadow-sm`   | 0 1px 3px hsl(25 8% 14% / 0.08)   |
+| `--shadow-md`   | 0 4px 12px hsl(25 8% 14% / 0.10)  |
+| `--shadow-lg`   | 0 8px 24px hsl(25 8% 14% / 0.12)  |
+| `--shadow-xl`   | 0 16px 48px hsl(25 8% 14% / 0.14) |
 
 Shadows use the near-black earth tone as the shadow color for warmth, not pure black.
 
@@ -145,13 +148,13 @@ Shadows use the near-black earth tone as the shadow color for warmth, not pure b
 
 ## Breakpoints
 
-| Token             | Value   |
-|-------------------|---------|
-| `--bp-mobile`     | 480px   |
-| `--bp-tablet`     | 768px   |
-| `--bp-desktop`    | 1024px  |
-| `--bp-wide`       | 1280px  |
-| `--bp-max`        | 1440px  |
+| Token          | Value  |
+| -------------- | ------ |
+| `--bp-mobile`  | 480px  |
+| `--bp-tablet`  | 768px  |
+| `--bp-desktop` | 1024px |
+| `--bp-wide`    | 1280px |
+| `--bp-max`     | 1440px |
 
 Max content width: `1200px`. Center with `margin-inline: auto` and `padding-inline: --spacing-6` (mobile) / `--spacing-12` (desktop).
 
@@ -159,15 +162,15 @@ Max content width: `1200px`. Center with `margin-inline: auto` and `padding-inli
 
 ## Motion
 
-| Token                   | Value              |
-|-------------------------|--------------------|
-| `--duration-fast`       | 120ms              |
-| `--duration-base`       | 200ms              |
-| `--duration-slow`       | 350ms              |
-| `--duration-enter`      | 400ms              |
-| `--easing-default`      | ease               |
-| `--easing-out`          | cubic-bezier(0.0, 0.0, 0.2, 1) |
-| `--easing-in-out`       | cubic-bezier(0.4, 0.0, 0.2, 1) |
+| Token              | Value                          |
+| ------------------ | ------------------------------ |
+| `--duration-fast`  | 120ms                          |
+| `--duration-base`  | 200ms                          |
+| `--duration-slow`  | 350ms                          |
+| `--duration-enter` | 400ms                          |
+| `--easing-default` | ease                           |
+| `--easing-out`     | cubic-bezier(0.0, 0.0, 0.2, 1) |
+| `--easing-in-out`  | cubic-bezier(0.4, 0.0, 0.2, 1) |
 
 Prefer minimal motion. Use entrance animations (`--duration-enter`) for hero and section reveals only. All interactive transitions use `--duration-base`.
 
@@ -180,12 +183,14 @@ Prefer minimal motion. Use entrance animations (`--duration-enter`) for hero and
 Purpose: primary CTAs (contact, EPK download), secondary nav actions.
 
 **Variants:**
+
 - `primary` — `--color-brand-primary` bg, `--color-text-inverse` text
 - `secondary` — transparent bg, `--color-brand-primary` border + text
 - `ghost` — no border, `--color-text-secondary` text, subtle hover fill
 - `bark` — `--color-brand-secondary` bg, `--color-text-inverse` text (use sparingly for contrast moments)
 
 **Sizes:**
+
 - `sm` — `--spacing-2` vertical, `--spacing-4` horizontal, `--font-size-sm`
 - `md` — `--spacing-3` vertical, `--spacing-6` horizontal, `--font-size-base`
 - `lg` — `--spacing-4` vertical, `--spacing-8` horizontal, `--font-size-lg`

@@ -5,6 +5,7 @@ Concise rules for building an accessible, fast, delightful single-page editorial
 **Context:** This is a static, single-page artist homepage with scroll-based navigation, one contact form, and no backend. No dark mode, no user accounts, no complex state management. Many typical app/SaaS UI rules don't apply here.
 
 **Not covered here (not needed for this project):**
+
 - URL state management / deep-linking (single-page scroll navigation)
 - Modals, drawers, tabs, filters, virtualized lists (no complex widgets)
 - Dark mode / theming (single light theme)

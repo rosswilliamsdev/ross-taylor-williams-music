@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+/* Design System Tokens */
+@theme {
+  /* Colors */
+  --color-brand-primary: hsl(100, 18%, 52%);
+  --color-brand-secondary: hsl(25, 28%, 32%);
+  --color-brand-primary-light: hsl(100, 22%, 88%);
+  --color-brand-primary-dark: hsl(100, 18%, 36%);
+
+  --color-neutral-50: hsl(45, 20%, 97%);
+  --color-neutral-100: hsl(45, 15%, 92%);
+  --color-neutral-200: hsl(40, 12%, 84%);
+  --color-neutral-400: hsl(35, 8%, 58%);
+  --color-neutral-600: hsl(30, 6%, 38%);
+  --color-neutral-900: hsl(25, 8%, 14%);
+
+  --color-error: hsl(4, 60%, 52%);
+  --color-success: hsl(145, 40%, 42%);
+
+  --color-surface-base: hsl(45, 20%, 97%);
+  --color-surface-raised: hsl(45, 15%, 92%);
+
+  --color-text-primary: hsl(25, 8%, 14%);
+  --color-text-secondary: hsl(30, 6%, 38%);
+  --color-text-muted: hsl(35, 8%, 58%);
+  --color-text-inverse: hsl(45, 20%, 97%);
+
+  /* Fonts */
+  --font-display: 'Glassure', serif;
+  --font-body: 'Poppins', system-ui, sans-serif;
+
+  /* Spacing (4px base unit) */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+  --spacing-24: 6rem;
+  --spacing-32: 8rem;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px hsl(25 8% 14% / 0.08);
+  --shadow-md: 0 4px 12px hsl(25 8% 14% / 0.10);
+  --shadow-lg: 0 8px 24px hsl(25 8% 14% / 0.12);
+
+  /* Motion */
+  --duration-base: 200ms;
+  --duration-enter: 400ms;
+  --easing-out: cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+/* Font Faces */
+@font-face {
+  font-family: 'Glassure';
+  src: url('/fonts/Glassure.woff2') format('woff2');
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+/* Base Styles */
+body {
+  font-family: var(--font-body);
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-base);
+  line-height: 1.6;
+}
+
+/* Glassure Typography Rules */
+.text-display {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Section Scroll Margin for Anchor Links */
+section {
+  scroll-margin-top: 6rem;
+}

@@ -24,6 +24,7 @@
 ```
 
 **Rules:**
+
 - 2 spaces, no tabs
 - Single quotes everywhere
 - No semicolons
@@ -33,19 +34,20 @@
 
 ## 2. Naming Conventions
 
-| Context | Convention | Example |
-|---------|-----------|---------|
-| Components (.astro) | PascalCase | `Nav.astro`, `ShowCard.astro` |
-| Utilities / scripts (.ts) | kebab-case | `scroll-reveal.ts`, `utils.ts` |
-| Variables / functions | camelCase | `showDate`, `formatVenue()` |
-| Types / interfaces | PascalCase | `Show`, `PressQuote` |
-| Booleans | `is`/`has`/`should` prefix | `isScrolled`, `hasTickets` |
-| Event handlers | `handle` prefix | `handleSubmit`, `handleMenuToggle` |
-| CSS custom properties | kebab-case | `--color-brand-primary` |
-| JSON data files | kebab-case | `shows.json`, `press-quotes.json` |
-| CSS classes (Tailwind) | utility-first | Tailwind classes; custom classes use kebab-case |
+| Context                   | Convention                 | Example                                         |
+| ------------------------- | -------------------------- | ----------------------------------------------- |
+| Components (.astro)       | PascalCase                 | `Nav.astro`, `ShowCard.astro`                   |
+| Utilities / scripts (.ts) | kebab-case                 | `scroll-reveal.ts`, `utils.ts`                  |
+| Variables / functions     | camelCase                  | `showDate`, `formatVenue()`                     |
+| Types / interfaces        | PascalCase                 | `Show`, `PressQuote`                            |
+| Booleans                  | `is`/`has`/`should` prefix | `isScrolled`, `hasTickets`                      |
+| Event handlers            | `handle` prefix            | `handleSubmit`, `handleMenuToggle`              |
+| CSS custom properties     | kebab-case                 | `--color-brand-primary`                         |
+| JSON data files           | kebab-case                 | `shows.json`, `press-quotes.json`               |
+| CSS classes (Tailwind)    | utility-first              | Tailwind classes; custom classes use kebab-case |
 
 **Rules:**
+
 - No vague names (`data`, `info`, `temp`, `stuff`)
 - File name should clearly describe its contents — no `helpers.ts` junk drawers
 - Component files match the component name exactly (`ShowCard.astro` exports the ShowCard component)
@@ -82,6 +84,7 @@ public/
 ```
 
 **Rules:**
+
 - Type-based organization (appropriate for a single-page site)
 - No barrel files (`index.ts` re-exports) — direct imports only
 - All static assets (fonts, images) live in `public/`
@@ -92,6 +95,7 @@ public/
 ## 4. Component & Module Patterns
 
 **Astro components:**
+
 - Props typed inline with a `Props` interface in the frontmatter:
 
 ```astro
@@ -112,11 +116,13 @@ const { venue, city, date, ticketUrl } = Astro.props
 - Astro `<script>` tags are automatically bundled and deduplicated — use them freely per component
 
 **TypeScript utilities (`src/scripts/`):**
+
 - Named exports only — no default exports
 - Keep functions small and single-purpose
 - Shared logic (animation setup, date formatting) lives here, not in component frontmatter
 
 **Interactivity pattern:**
+
 - Static markup rendered by Astro at build time
 - Progressive enhancement via `<script>` tags that query the DOM
 - Motion library for scroll animations, vanilla JS for everything else (nav toggle, form handling)
@@ -126,6 +132,7 @@ const { venue, city, date, ticketUrl } = Astro.props
 **Config:** `strict: true` — non-negotiable.
 
 **Rules:**
+
 - `any` is banned. Use `unknown` + type narrowing if the type isn't known.
 - `interface` for object shapes (Props, data models). `type` for unions, intersections, and aliases.
 - All JSON content imports are typed.
@@ -134,7 +141,7 @@ const { venue, city, date, ticketUrl } = Astro.props
 
 ```ts
 interface Show {
-  date: string       // ISO format: '2026-06-14'
+  date: string // ISO format: '2026-06-14'
   venue: string
   city: string
   ticketUrl?: string
@@ -152,11 +159,13 @@ interface PressQuote {
 ## 6. Git Workflow
 
 **Branch naming:** `type/short-description`
+
 - `feat/shows-section`
 - `fix/mobile-nav`
 - `chore/update-photos`
 
 **Commit messages:** Conventional Commits format.
+
 - `feat: add shows section with card grid`
 - `fix: hero image positioning on mobile`
 - `chore: optimize promo images`
@@ -164,11 +173,13 @@ interface PressQuote {
 - `docs: update README with deploy instructions`
 
 **Commit discipline:**
+
 - Group commits logically — one commit per meaningful unit of work, not per file or per save
 - A commit should represent a coherent change that could be understood (and reverted) on its own
 - Don't mix unrelated changes in one commit (e.g. don't combine a nav fix with a new section)
 
 **Rules:**
+
 - Squash merge to main
 - Never force push to main
 - Keep commits focused — if a commit message needs "and" in it, it's probably two commits
@@ -176,11 +187,13 @@ interface PressQuote {
 ## 7. Error Handling
 
 **Contact form:**
+
 - Show a success toast on successful Formspree submission
 - Show an error toast on failure — never silently fail
 - Disable the submit button while sending to prevent double submissions
 
 **General rules:**
+
 - No silent catch blocks (`catch(e) {}`) — always log or surface the error
 - Images use `loading="lazy"` and meaningful `alt` text
 - Layout must not break if an image fails to load
@@ -189,16 +202,19 @@ interface PressQuote {
 ## 8. Environment & Config
 
 **Environment variables:**
+
 - One `.env` file for local dev
 - `.env.example` committed to repo with placeholder values
 - `.env` added to `.gitignore` — never committed
 
 **Current env vars:**
+
 ```
 PUBLIC_FORMSPREE_URL=https://formspree.io/f/xxxxx
 ```
 
 **Rules:**
+
 - Only `PUBLIC_` prefixed vars are exposed to client code (Astro convention)
 - No secrets in client-accessible env vars
 - No secrets committed to the repo, ever

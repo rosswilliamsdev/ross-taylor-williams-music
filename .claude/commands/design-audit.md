@@ -31,6 +31,7 @@ Use bash/grep to detect violations. Scan only files matching: `**/*.tsx`, `**/*.
 ### Grep Patterns to Run
 
 **Hardcoded colors:**
+
 ```
 grep -rEn "#[0-9a-fA-F]{3,6}" [path]
 grep -rEn "rgb\(" [path]
@@ -38,16 +39,19 @@ grep -rEn "hsl\(" [path]
 ```
 
 **Inline styles (JSX/TSX):**
+
 ```
 grep -rEn "style=\{\{" [path]
 ```
 
 **!important:**
+
 ```
 grep -rEn "!important" [path]
 ```
 
 **Arbitrary Tailwind values (if Tailwind project):**
+
 ```
 grep -rEn "\[.*(px|rem|em)\]|\[#" [path]
 ```
@@ -63,6 +67,7 @@ Cross-reference any raw values found against tokens in `design-system.md` to con
 ### Token Violations (requires design-system.md)
 
 Flag anywhere the code uses a raw value that corresponds to an existing token:
+
 - Hardcoded hex, rgb, hsl, or named colors instead of token references
 - Hardcoded pixel/rem values for spacing, font sizes, border radius, or shadows that match a defined token
 - Hardcoded font family strings instead of token references
@@ -78,11 +83,13 @@ Flag anywhere the code uses a raw value that corresponds to an existing token:
 ### Severity Levels
 
 Assign a severity to each violation:
+
 - **High** — systemic pattern (e.g., color hardcoded across many components)
 - **Medium** — isolated but meaningful deviation (e.g., one-off font size bypass)
 - **Low** — minor or cosmetic (e.g., `#fff` in a comment or test file)
 
 ### General Bad Practices (always apply, even without design-system.md)
+
 - Inline styles (`style={{ ... }}`)
 - Use of `!important`
 - Magic numbers with no token or comment explaining the value
@@ -153,6 +160,7 @@ Terse and precise. No explanations beyond what's needed to locate and understand
 ## After Generating
 
 Tell the user:
+
 1. Where the report was saved
 2. Total violation count and breakdown by severity
 3. That they can ask Claude Code to fix violations using the report as a reference
