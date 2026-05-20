@@ -1,17 +1,63 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Nav from '../components/Nav.astro'
+import Hero from '../components/Hero.astro'
+import Bio from '../components/Bio.astro'
+import Music from '../components/Music.astro'
+import Shows from '../components/Shows.astro'
+// import Press from '../components/Press.astro'
+import Contact from '../components/Contact.astro'
+import Footer from '../components/Footer.astro'
+import { Image } from 'astro:assets'
+import bwFlower from '../../public/images/bw-flower.jpg'
+import throughLeaves from '../../public/images/through-leaves.jpg'
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <h1>Astro</h1>
-  </body>
-</html>
+<BaseLayout
+  title="Ross Taylor Williams — Singer-Songwriter"
+  description="Singer-songwriter from Los Angeles. Debut album Earth Music out now. Organic, introspective folk music inspired by nature and quiet moments."
+>
+  <Nav />
+  <main>
+    <Hero />
+
+    <!-- Full-bleed Photo Divider -->
+    <div class="w-full h-[400px] md:h-[500px] overflow-hidden">
+      <Image
+        src={bwFlower}
+        alt="Black and white photograph of a flower"
+        class="w-full h-full object-cover"
+        loading="lazy"
+        quality={85}
+      />
+    </div>
+
+    <Bio />
+
+    <Music />
+
+    <!-- Full-bleed Photo Divider -->
+    <div class="w-full h-[400px] md:h-[500px] overflow-hidden">
+      <Image
+        src={throughLeaves}
+        alt="View through leaves in natural setting"
+        class="w-full h-full object-cover"
+        loading="lazy"
+        quality={85}
+      />
+    </div>
+
+    <Shows />
+
+    <!-- Press section - built but commented out until content is ready -->
+    <!-- <Press /> -->
+
+    <Contact />
+  </main>
+  <Footer />
+
+  <!-- Scroll Reveal Script -->
+  <script>
+    import '../scripts/scroll-reveal.ts'
+  </script>
+</BaseLayout>

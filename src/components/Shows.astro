@@ -1,0 +1,50 @@
+---
+import ShowCard from './ShowCard.astro'
+import type { Show } from '../content/types'
+import showsData from '../content/shows.json'
+
+const shows = showsData as Show[]
+
+// Sort shows by date (earliest first)
+const sortedShows = shows.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+
+// Filter to only upcoming shows
+const today = new Date()
+today.setHours(0, 0, 0, 0)
+const upcomingShows = sortedShows.filter(show => new Date(show.date) >= today)
+---
+
+<section id="shows" class="py-20 md:py-32 bg-cream-50">
+  <div class="max-w-[900px] mx-auto px-6 md:px-12">
+    <!-- Section Header -->
+    <h2 class="text-display text-3xl md:text-4xl text-bark-500 text-center mb-6 scroll-reveal">
+      Upcoming Shows
+    </h2>
+    <p class="text-center text-base md:text-lg text-cream-600 mb-12 scroll-reveal">
+      Catch a live performance
+    </p>
+
+    <!-- Shows List -->
+    {upcomingShows.length > 0 ? (
+      <div class="space-y-4 scroll-reveal">
+        {upcomingShows.map((show) => (
+          <ShowCard
+            date={show.date}
+            venue={show.venue}
+            city={show.city}
+            ticketUrl={show.ticketUrl}
+          />
+        ))}
+      </div>
+    ) : (
+      <div class="text-center py-12 scroll-reveal">
+        <p class="text-base text-cream-600 mb-4">
+          No upcoming shows at the moment. Check back soon!
+        </p>
+        <p class="text-sm text-cream-400">
+          Want to book a show? <a href="#contact" class="text-sage-500 hover:underline">Get in touch</a>.
+        </p>
+      </div>
+    )}
+  </div>
+</section>

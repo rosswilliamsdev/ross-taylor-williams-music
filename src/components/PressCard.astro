@@ -1,0 +1,32 @@
+---
+interface Props {
+  quote: string
+  source: string
+  url?: string
+}
+
+const { quote, source, url } = Astro.props
+---
+
+<div class="bg-cream-100 border border-cream-200 rounded-md p-6 shadow-sm hover:shadow-md transition-shadow duration-200">
+  <blockquote class="mb-4">
+    <p class="text-base md:text-lg leading-relaxed text-cream-900 italic">
+      "{quote}"
+    </p>
+  </blockquote>
+  <div class="flex items-center gap-2">
+    <span class="inline-block px-2 py-1 bg-sage-50 text-sage-700 text-xs font-medium uppercase tracking-wide rounded-sm">
+      {source}
+    </span>
+    {url && (
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-sm text-sage-500 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-sage-500 focus-visible:outline-offset-2 rounded"
+      >
+        Read more �
+      </a>
+    )}
+  </div>
+</div>

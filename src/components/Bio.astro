@@ -1,0 +1,45 @@
+---
+import { Image } from 'astro:assets'
+import bioPhoto from '../../public/images/crossed-legged.jpg'
+---
+
+<section id="bio" class="py-20 md:py-32 bg-cream-50">
+  <div class="max-w-[1200px] mx-auto px-6 md:px-12">
+    <!-- Section Header -->
+    <h2 class="text-display text-3xl md:text-4xl text-bark-500 text-center mb-16 scroll-reveal">
+      About
+    </h2>
+
+    <!-- Two-Column Layout -->
+    <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+      <!-- Photo Column -->
+      <div class="scroll-reveal">
+        <Image
+          src={bioPhoto}
+          alt="Ross Taylor Williams seated cross-legged in natural setting"
+          class="w-full h-auto rounded-md shadow-md"
+          loading="lazy"
+          quality={85}
+        />
+      </div>
+
+      <!-- Bio Text Column -->
+      <div class="space-y-4 scroll-reveal">
+        <p class="text-base md:text-lg leading-relaxed text-cream-900">
+          Ross Taylor Williams is a singer-songwriter from Los Angeles, crafting organic,
+          introspective folk music that draws from the natural world and the quiet moments
+          in between.
+        </p>
+        <p class="text-base md:text-lg leading-relaxed text-cream-900">
+          His debut album <em>Earth Music</em> is a meditation on connection  to place, to
+          memory, and to the rhythms of the earth. Recorded with minimal production and a focus
+          on warmth and presence, the album invites listeners into an unhurried, contemplative space.
+        </p>
+        <p class="text-base md:text-lg leading-relaxed text-cream-900">
+          Ross's music has been described as "quietly powerful" and "achingly honest," blending
+          fingerpicked guitar, gentle vocals, and evocative storytelling.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
