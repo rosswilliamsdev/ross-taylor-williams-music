@@ -191,7 +191,7 @@
         font-family: var(--font-body);
         font-size: 0.8rem;
         font-weight: 500;
-        color: var(--color-text-secondary);
+        color: black;
         text-transform: uppercase;
         letter-spacing: 0.08em;
         transition: color var(--duration-base) var(--easing-default);
@@ -1131,15 +1131,15 @@
           <form class="contact-form reveal" onsubmit="event.preventDefault()">
             <div class="form-field">
               <label for="name">Name</label>
-              <input type="text" id="name" name="name" placeholder="Your name" />
+              <input type="text" id="name" name="name" />
             </div>
             <div class="form-field">
               <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="you@email.com" />
+              <input type="email" id="email" name="email" />
             </div>
             <div class="form-field">
               <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="What's on your mind?"></textarea>
+              <textarea id="message" name="message"></textarea>
             </div>
             <button type="submit" class="btn-primary">Send Message</button>
           </form>
