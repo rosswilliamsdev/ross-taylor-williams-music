@@ -1,35 +1,99 @@
 ---
-import { Image } from 'astro:assets'
-import albumCover from '../../public/images/album-cover.jpg'
+// Hero section with full-bleed background image, centered title, and slim Bandcamp player
+import { Image } from 'astro:assets';
+import heroImage from '../assets/images/cover-no-text-optimized.jpg';
 ---
 
-<section id="top" class="relative w-full h-screen min-h-[600px] overflow-hidden">
-  <!-- Album Cover Background -->
-  <div class="absolute inset-0">
+<section id="top" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background Image -->
+  <div class="absolute inset-0 z-0">
     <Image
-      src={albumCover}
-      alt="Earth Music album cover by Ross Taylor Williams"
-      class="w-full h-full object-cover hero-image"
+      src={heroImage}
+      alt="Ancient tree in natural setting, Earth Music album cover"
+      class="w-full h-full object-cover"
       loading="eager"
-      quality={90}
+      widths={[640, 1024, 1920, 2560]}
+      sizes="100vw"
     />
-    <!-- Gradient Overlay for Text Legibility -->
-    <div class="absolute inset-0 bg-gradient-to-t from-[hsl(25,8%,14%/0.6)] via-transparent to-transparent"></div>
+    <!-- Gradient overlay for legibility -->
+    <div class="absolute inset-0 bg-gradient-to-b from-bark-950/40 via-bark-950/20 to-bark-950/50"></div>
   </div>
 
-  <!-- Hero Content -->
-  <div class="relative z-10 h-full flex flex-col items-center justify-end pb-20 md:pb-24 px-6">
-    <h1 class="text-display text-4xl md:text-5xl lg:text-6xl text-cream-50 text-center mb-4 hero-title">
-      Ross Taylor Williams
-    </h1>
-    <p class="text-display text-xl md:text-2xl text-cream-50 mb-8 hero-subtitle">
+  <!-- Content -->
+  <div class="relative z-10 flex flex-col items-center justify-center text-center px-6 py-20">
+    <!-- Album Title -->
+    <h1 class="text-display text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] text-cream-50 mb-6 hero-title">
       Earth Music
+    </h1>
+
+    <!-- Tagline -->
+    <p class="text-lg sm:text-xl md:text-2xl text-cream-50 max-w-2xl mb-12 hero-subtitle">
+      The debut album from Ross Taylor Williams
     </p>
+
+    <!-- Listen Now CTA -->
     <a
       href="#music"
-      class="inline-flex items-center justify-center px-8 py-4 bg-sage-500 text-cream-50 font-sans font-medium text-base rounded-sm transition-all duration-200 hover:bg-sage-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-sage-500 focus-visible:outline-offset-2 hero-cta"
+      class="listen-cta"
     >
       Listen Now
     </a>
   </div>
 </section>
+
+<style>
+  /* Subtle text legibility enhancement with moderate shadows */
+  .hero-title {
+    text-shadow:
+      0 2px 8px hsl(25 8% 14% / 0.4),
+      0 4px 16px hsl(25 8% 14% / 0.3);
+  }
+
+  .hero-subtitle {
+    text-shadow:
+      0 2px 6px hsl(25 8% 14% / 0.5),
+      0 4px 12px hsl(25 8% 14% / 0.4);
+  }
+
+  /* Frosted glass "Listen Now" button */
+  .listen-cta {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+
+    /* Frosted glass effect */
+    background: hsla(0, 0%, 100%, 0.2);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+
+    
+
+    /* Pill shape */
+    border-radius: 999px;
+    border: 1px solid hsla(0, 0%, 100%, 0.4);
+
+    /* Typography */
+    color: hsl(42 50% 96%);
+    font-weight: 600;
+    font-size: 1.125rem;
+    letter-spacing: 0.075em;
+
+    /* Elevation */
+    box-shadow: 
+  0 4px 16px hsla(25, 8%, 14%, 0.2),
+  0 8px 32px hsla(25, 8%, 14%, 0.1);
+
+    /* Smooth transitions */
+    transition: all 300ms ease-out;
+
+    /* Fallback for browsers without backdrop-filter support */
+    @supports not (backdrop-filter: blur(10px)) {
+      background: hsla(0, 0%, 100%, 0.5);
+    }
+  }
+
+  .listen-cta:hover {
+    background: hsla(0, 0%, 100%, 0.47);
+    box-shadow: 0 4px 16px hsla(25, 8%, 14%, 0.25);
+    transform: scale(1.03);
+  }
+</style>
