@@ -104,7 +104,7 @@ section {
 /* Nav Component Styles */
 .nav-link {
   font-family: var(--font-body);
-  font-size: 0.875rem;
+  font-size: 1.125rem;
   font-weight: 500;
   color: var(--color-text-secondary);
   transition: color var(--duration-base) var(--easing-out);
@@ -188,6 +188,15 @@ section {
     opacity: 1;
     transform: none;
   }
+}
+
+/* Image Borders */
+img {
+  border: 2px solid hsl(25, 8%, 14%);
+}
+
+.hero-image img {
+  border: none;
 }
 
 /* Contact Form iOS Zoom Prevention */
