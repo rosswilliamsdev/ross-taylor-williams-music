@@ -17,16 +17,16 @@ const upcomingShows = sortedShows.filter(show => new Date(show.date) >= today)
 <section id="shows" class="py-20 md:py-32 bg-cream-50">
   <div class="max-w-[900px] mx-auto px-6 md:px-12">
     <!-- Section Header -->
-    <h2 class="text-display text-3xl md:text-4xl text-center mb-6 scroll-reveal">
+    <h2 class="text-display text-3xl md:text-4xl text-center mb-6 scroll-reveal" data-delay="0">
       Upcoming Shows
     </h2>
-    <p class="text-center text-base md:text-lg text-cream-600 mb-12 scroll-reveal">
+    <p class="text-center text-base md:text-lg text-cream-600 mb-12 scroll-reveal" data-delay="1">
       Catch a live performance
     </p>
 
     <!-- Shows List -->
     {upcomingShows.length > 0 ? (
-      <div class="space-y-4 scroll-reveal">
+      <div class="space-y-4 scroll-reveal" data-delay="2">
         {upcomingShows.map((show) => (
           <ShowCard
             date={show.date}
@@ -37,7 +37,7 @@ const upcomingShows = sortedShows.filter(show => new Date(show.date) >= today)
         ))}
       </div>
     ) : (
-      <div class="text-center py-12 scroll-reveal">
+      <div class="text-center py-12 scroll-reveal" data-delay="2">
         <p class="text-base text-cream-600 mb-4">
           No upcoming shows at the moment. Check back soon!
         </p>
